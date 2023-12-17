@@ -61,6 +61,7 @@ set_questons()
 def answer_click():
     if answer[0].isChecked():
         resulat_lbl.setText("Правильно")
+
     else:
         resulat_lbl.setText("Неправильно")
     resulat_lbl.show()
