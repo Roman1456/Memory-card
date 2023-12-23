@@ -3,7 +3,7 @@ import random
 from PyQt5.QtWidgets import *
 
 import roma
-
+import menu_window
 app = QApplication([])
 
 window = QWidget()
@@ -74,7 +74,12 @@ def next_quest_func():
     roma.questons_number+=1
     set_questons()
 
+def menu_show():
+    window.hide()
+    menu_window.menu_window()
+    window.show()
 
+menu_btn.clicked.connect(menu_show)
 vidpovist_btn.clicked.connect(answer_click)
 next_quest_btn.clicked.connect(next_quest_func)
 window.show()
