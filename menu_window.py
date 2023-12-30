@@ -50,6 +50,7 @@ def menu_window():
             "Неправилна відповідь 2": qest_edit3.text(),
             "Неправилна відповідь 3": qest_edit4.text(),
         }
+
         roma.questons.append(a)
     main_line.addWidget(add_quest_btn)
     add_quest_btn.clicked.connect(add_quest_func)

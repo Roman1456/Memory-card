@@ -4,12 +4,14 @@ from PyQt5.QtWidgets import *
 
 import roma
 import menu_window
+import bublig
 app = QApplication([])
 
 window = QWidget()
 window.resize(700,500)
 
 menu_btn = QPushButton("Меню")
+change_btn = QPushButton("Змінити")
 next_quest_btn = QPushButton("Наступне запитаня")
 grou_box = QGroupBox("Варіанти відповідей")
 spin_box = QSpinBox()
@@ -30,6 +32,7 @@ mine_line = QVBoxLayout()
 
 h1 = QHBoxLayout()
 h1.addWidget(menu_btn)
+h1.addWidget(change_btn)
 h1.addStretch(1)
 mine_line.addLayout(h1)
 mine_line.addWidget(qesting_lbl)
@@ -62,6 +65,7 @@ def answer_click():
     if answer[0].isChecked():
         resulat_lbl.setText("Правильно")
 
+
     else:
         resulat_lbl.setText("Неправильно")
     resulat_lbl.show()
@@ -69,6 +73,7 @@ def answer_click():
     answer[1].hide()
     answer[2].hide()
     answer[3].hide()
+
 
 def next_quest_func():
     roma.questons_number+=1
@@ -79,7 +84,14 @@ def menu_show():
     menu_window.menu_window()
     window.show()
 
+def change_show():
+    window.hide()
+    bublig.chank_window()
+    window.show()
+    set_questons()
+
 menu_btn.clicked.connect(menu_show)
+change_btn.clicked.connect(change_show)
 vidpovist_btn.clicked.connect(answer_click)
 next_quest_btn.clicked.connect(next_quest_func)
 window.show()
